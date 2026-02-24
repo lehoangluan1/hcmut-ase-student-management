@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Danh Sách Sinh Viên</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    .text-danger { color: #b00020; font-weight: 600; }
+    .muted { color: #666; font-size: 14px; }
+    form { margin: 12px 0 6px; display: flex; gap: 8px; }
+    input { padding: 8px; min-width: 280px; }
+    button { padding: 8px 12px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Danh Sách Sinh Viên</h1>
+
+  <!-- 7.1 Form tim kiem -->
+  <form action="/students" method="GET">
+    <input type="text" name="keyword" placeholder="Nhap ten..." th:value="${keyword}" />
+    <button type="submit">Tim</button>
+    <a href="/students" class="muted" style="align-self:center;">Xoa loc</a>
+  </form>
+
+  <div class="muted" th:if="${keyword != null and !#strings.isEmpty(keyword)}">
+    Dang loc theo tu khoa: <b th:text="${keyword}">keyword</b>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Ho va Ten</th>
+        <th>Email</th>
+        <th>Tuoi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Neu khong co du lieu -->
+      <tr th:if="${dsSinhVien == null or #lists.isEmpty(dsSinhVien)}">
+        <td colspan="4" class="muted">Khong co sinh vien nao.</td>
+      </tr>
+
+      <!-- 7.2 To mau do neu age < 18 -->
+      <tr th:each="student : ${dsSinhVien}"
+          th:classappend="${student.age < 18} ? 'text-danger' : ''">
+        <td th:text="${student.id}">ID</td>
+        <td th:text="${student.name}">Ten</td>
+        <td th:text="${student.email}">Email</td>
+        <td th:text="${student.age}">0</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

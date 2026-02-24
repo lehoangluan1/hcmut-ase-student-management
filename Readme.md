@@ -1,4 +1,4 @@
-## Lab 1 — Câu hỏi lý thuyết (Phần 8)
+## Lab 1 — Câu hỏi lý thuyết
 ### Câu 1 - Thêm 10 dữ liệu
 ![Home](Lab1_cau1.png)
 
@@ -47,3 +47,18 @@ Trong Hibernate/JPA, `ddl-auto=create` có nghĩa:
 - Hoặc `ddl-auto=validate/none` cho môi trường production.
 
 **Kết luận:** Dữ liệu bị mất là hành vi đúng theo thiết kế của `ddl-auto=create`; muốn bảo toàn dữ liệu cần chọn chế độ phù hợp hơn.
+
+## Lab 2 — Kết quả kiểm thử 
+| url | ok | status_code | content_type | raw_body | json | error |
+| --- | --- | ----------- | ------------ | -------- | ---- | ----- |
+| http://localhost:8080/api/students | true | 200 | application/json | "[{\"id\":\"1\",\"name\":\"Nguyen Van A\",\"email\":\"vana@example.com\",\"age\":20},{\"id\":\"2\",\"name\":\"Tran Thi B\",\"email\":\"thib@example.com\",\"age\":21},{\"id\":\"3\",\"name\":\"Le Van C\",\"email\":\"c@example.com\",\"age\":19},{\"id\":\"4\",\"name\":\"Pham Thi D\",\"email\":\"d@example.com\",\"age\":22},{\"id\":\"5\",\"name\":\"Hoang Van E\",\"email\":\"e@example.com\",\"age\":20},{\"id\":\"6\",\"name\":\"Vo Thi F\",\"email\":\"f@example.com\",\"age\":23},{\"id\":\"7\",\"name\":\"Do Van G\",\"email\":\"g@example.com\",\"age\":21},{\"id\":\"8\",\"name\":\"Bui Thi H\",\"email\":\"h@example.com\",\"age\":18},{\"id\":\"9\",\"name\":\"Dang Van I\",\"email\":\"i@example.com\",\"age\":24},{\"id\":\"10\",\"name\":\"Nguyen Thi K\",\"email\":\"k@example.com\",\"age\":20},{\"id\":\"11\",\"name\":\"Tran Van L\",\"email\":\"l@example.com\",\"age\":22},{\"id\":\"12\",\"name\":\"Phan Thi M\",\"email\":\"m@example.com\",\"age\":21}]" | [{"id":"1","name":"Nguyen Van A","email":"vana@example.com","age":20},{"id":"2","name":"Tran Thi B","email":"thib@example.com","age":21},{"id":"3","name":"Le Van C","email":"c@example.com","age":19},{"id":"4","name":"Pham Thi D","email":"d@example.com","age":22},{"id":"5","name":"Hoang Van E","email":"e@example.com","age":20},{"id":"6","name":"Vo Thi F","email":"f@example.com","age":23},{"id":"7","name":"Do Van G","email":"g@example.com","age":21},{"id":"8","name":"Bui Thi H","email":"h@example.com","age":18},{"id":"9","name":"Dang Van I","email":"i@example.com","age":24},{"id":"10","name":"Nguyen Thi K","email":"k@example.com","age":20},{"id":"11","name":"Tran Van L","email":"l@example.com","age":22},{"id":"12","name":"Phan Thi M","email":"m@example.com","age":21}] | null |
+| http://localhost:8080/api/students/1 | true | 200 | application/json | "{\"id\":\"1\",\"name\":\"Nguyen Van A\",\"email\":\"vana@example.com\",\"age\":20}" | {"id":"1","name":"Nguyen Van A","email":"vana@example.com","age":20} | null |
+| http://localhost:8080/api/students/999 | false | 200 | null | "" | null | Expected 404 Not Found (student not found), but got 200 with empty body |
+
+## Lab 3 — Kết quả hiện thực 
+![Home](Lab3_1.png)
+
+![Home](Lab3_2.png)
+
+## Lab 4 — Kết quả hiện thực
+
