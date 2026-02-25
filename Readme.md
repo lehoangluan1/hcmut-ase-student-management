@@ -62,3 +62,26 @@ Trong Hibernate/JPA, `ddl-auto=create` có nghĩa:
 
 ## Lab 4 — Kết quả hiện thực
 
+![Home](list.png)
+ 
+![Home](search.png)
+
+![Home](detail.png)
+
+![Home](confirm_delete.png)
+
+![Home](delete_sucess.png)
+
+![Home](create_fprm.png)
+
+![Home](create_success.png)
+
+![Home](edit_form.png)
+
+![Home](edit_success.png)
+
+![Home](newPropeties.png)
+
+![Home](envConfig.png)
+
+![Home](postgreDB.png)
