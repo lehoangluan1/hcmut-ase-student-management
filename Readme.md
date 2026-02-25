@@ -70,9 +70,9 @@ Trong Hibernate/JPA, `ddl-auto=create` có nghĩa:
 
 ![Home](confirm_delete.png)
 
-![Home](delete_sucess.png)
+![Home](delete_success.png)
 
-![Home](create_fprm.png)
+![Home](create_form.png)
 
 ![Home](create_success.png)
 
