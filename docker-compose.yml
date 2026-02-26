@@ -14,13 +14,11 @@ services:
   app:
     build: .
     container_name: student_app
-    depends_on:
-      - db
     environment:
       PORT: 8080
-      DATABASE_URL: jdbc:postgresql://db:5432/student_management
-      DB_USERNAME: postgres
-      DB_PASSWORD: 123456
+      DB_USERNAME: neondb_owner
+      DB_PASSWORD: npg_x0wBbEUFCsI6
+      DATABASE_URL: jdbc:postgresql://ep-delicate-frog-a1bjrklo-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
     ports:
       - "8080:8080"
 
