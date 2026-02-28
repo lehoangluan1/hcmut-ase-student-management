@@ -1,3 +1,148 @@
+# Student Management - Advanced Software Engineering (HCMUT)
+
+**HCMC University of Technology (HCMUT)**  
+**Faculty of Computer Science and Engineering**  
+**Advanced Software Engineering**  
+**Lab Series:** Xây Dựng Web App Căn Bản (Lab 1 → Lab 5)
+
+---
+
+## 1) Thông tin nhóm
+
+- **Thành viên 1:** Lê Hoàng Luân — **MSSV:** `2311982`
+
+---
+
+## 2) Public URL (Deployment)
+
+- **Public URL (Render):** `https://hcmut-ase-student-management-2.onrender.com`
+- **Live Demo:** `https://hcmut-ase-student-management-2.onrender.com/students/list`
+---
+
+## 3) Công nghệ sử dụng
+
+- Java 17+
+- Spring Boot
+- Maven Wrapper (`./mvnw`)
+- Thymeleaf
+- Database: SQLite / PostgreSQL
+- Docker / Docker Compose
+
+---
+
+## 4) Cấu trúc chức năng đã hoàn thành
+
+- Khởi tạo project + cấu hình DB
+- CRUD backend (service/repository)
+- Thymeleaf hiển thị danh sách
+- CRUD Web UI hoàn chỉnh + PostgreSQL
+- Docker & Deployment (Render + Neon)
+
+---
+
+## 5) Route Web SSR (khớp code hiện tại)
+
+- **Base path:** `/students`
+
+- `GET /students` (có thể kèm `?keyword=...`)
+- `GET /students/list` (có thể kèm `?keyword=...`)
+- `GET /students/{id}`
+- `GET /students/new`
+- `POST /students`
+- `GET /students/{id}/edit`
+- `POST /students/{id}`
+- `POST /students/{id}/delete`
+
+---
+
+## 6) Hướng dẫn chạy dự án
+
+### 6.1 Yêu cầu môi trường
+
+- Cài JDK 17+
+- Hoặc Docker Desktop nếu chạy bằng Docker/Compose
+
+### 6.2 Chạy bằng Maven Wrapper
+
+**Bước 1:** vào thư mục project
+
+```bash
+cd student-management
+```
+
+**Bước 2:** chạy ứng dụng
+
+```bash
+./mvnw spring-boot:run
+```
+
+**Bước 3:** truy cập
+
+- `http://localhost:8080/students`
+- `http://localhost:8080/students/list`
+
+---
+
+## 7) Cấu hình Database (PostgreSQL)
+
+Dự án đọc cấu hình từ biến môi trường:
+
+- `PORT` (mặc định 8080)
+- `DATABASE_URL`
+- `DB_USERNAME`
+- `DB_PASSWORD`
+
+### 7.1 Chạy local với PostgreSQL
+
+Tạo file `.env` (**KHÔNG commit lên git**):
+
+```env
+PORT=8080
+DB_USERNAME=<YOUR_DB_USERNAME>
+DB_PASSWORD=<YOUR_DB_PASSWORD>
+DATABASE_URL=jdbc:postgresql://localhost:5432/student_management
+```
+
+Chạy:
+
+```bash
+export PORT=8080
+export DB_USERNAME="<YOUR_DB_USERNAME>"
+export DB_PASSWORD="<YOUR_DB_PASSWORD>"
+export DATABASE_URL="jdbc:postgresql://localhost:5432/student_management"
+
+./mvnw spring-boot:run
+```
+
+---
+
+## 8) Chạy bằng Docker / Docker Compose
+
+### 8.1 Build & run bằng Dockerfile
+
+```bash
+docker build -t student-management:latest .
+docker run -p 8080:8080 student-management:latest
+```
+
+### 8.2 Run bằng Docker Compose
+```bash
+docker compose up --build
+```
+
+Truy cập :
+
+- `http://localhost:8080/students/list`
+
+---
+
+## 9) Ghi chú cấu hình JPA
+
+```properties
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
+
 ## Lab 1 — Câu hỏi lý thuyết
 ### Câu 1 - Thêm 10 dữ liệu
 ![Home](Lab1_cau1.png)
@@ -85,3 +230,6 @@ Trong Hibernate/JPA, `ddl-auto=create` có nghĩa:
 ![Home](envConfig.png)
 
 ![Home](postgreDB.png)
+
+## Lab 5 — Kết quả hiện thực
+- **Live Demo:** `https://hcmut-ase-student-management-2.onrender.com/students/list`
